@@ -27,7 +27,7 @@ class LessonContentImporter
   end
 
   def decoded_content
-    Base64.decode64(github_response[:content]).force_encoding("UTF-8")
+    Base64.decode64(github_response[:content]).force_encoding('UTF-8')
   end
 
   def github_response
