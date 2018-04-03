@@ -23,7 +23,18 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <div class="lesson-functions">
+=======
+<% if user_signed_in? %>
+  <!-- Displays You Can Do It giphy -->
+  <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
+    <img id="motivate-img" src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
+  <% end %>
+<% end %>
+
+<div class="individual-lesson <%= @lesson.is_project ? 'project-lesson' : ''%>">
+>>>>>>> origin/dev
   <div class="container">
     <div class="card-main">
       <h1 class="lesson-functions__title">
@@ -33,9 +44,41 @@
       <h3 class="lesson-functions__sub-title accent bold">
         <%= @lesson.title %>
       </h3>
+<<<<<<< HEAD
 
       <div class="lesson-button-group">
         <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+=======
+    <% end %>
+
+<<<<<<< HEAD
+    <h2><%= @lesson.title %></h2>
+=======
+
+>>>>>>> dev
+    <%= convert_markdown_to_html(@lesson.content) %>
+
+    <%= render partial: 'chat_link' %>
+
+    <% if @right_box_ad %>
+      <%= render :partial => "right_box_ad", :locals => { :ad => @right_box_ad } %>
+    <% end %>
+
+    <% if @lower_banner_ad %>
+      <%= render :partial => "lower_banner_ad", :locals => { :ad => @lower_banner_ad } %>
+    <% end %>
+
+    <div id="info-box">
+      <%= render 'shared/social_sharing_buttons' %>
+      <%= render 'lessons/contribution_links' %>
+      <%= render 'lessons/license' %>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="action-box">
+      <div class="lc-end-wrapper">
+        <%= render "shared/complete_lesson" %>
+>>>>>>> origin/dev
       </div>
 
       <% if @projects && ProjectSubmissionFeature.enabled? %>
